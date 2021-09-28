@@ -1,20 +1,16 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rabbitmq
   labels:
     name: rabbitmq
-  namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: rabbitmq
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: rabbitmq
       annotations:
@@ -43,5 +39,3 @@ spec:
         ports:
         - containerPort: 9090
           name: exporter
-      nodeSelector:
-        beta.kubernetes.io/os: linux

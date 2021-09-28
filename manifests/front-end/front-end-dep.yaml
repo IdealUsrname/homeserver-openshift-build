@@ -1,9 +1,7 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
-  namespace: sock-shop
   labels:
     name: front-end
 spec:
@@ -11,10 +9,8 @@ spec:
   selector:
     matchLabels:
       name: front-end
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: front-end
     spec:
@@ -52,5 +48,3 @@ spec:
             port: 8079
           initialDelaySeconds: 30
           periodSeconds: 3
-      nodeSelector:
-        beta.kubernetes.io/os: linux

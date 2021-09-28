@@ -1,20 +1,16 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: user-db
   labels:
     name: user-db
-  namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: user-db
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: user-db
     spec:
@@ -40,5 +36,3 @@ spec:
         - name: tmp-volume
           emptyDir:
             medium: Memory
-      nodeSelector:
-        beta.kubernetes.io/os: linux

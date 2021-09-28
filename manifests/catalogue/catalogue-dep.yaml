@@ -1,20 +1,16 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalogue
   labels:
     name: catalogue
-  namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: catalogue
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: catalogue
     spec:
@@ -54,5 +50,3 @@ spec:
             port: 80
           initialDelaySeconds: 180
           periodSeconds: 3
-      nodeSelector:
-        beta.kubernetes.io/os: linux

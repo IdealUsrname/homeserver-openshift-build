@@ -1,20 +1,16 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: payment
   labels:
     name: payment
-  namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: payment
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: payment
     spec:
@@ -51,5 +47,3 @@ spec:
             port: 80
           initialDelaySeconds: 180
           periodSeconds: 3
-      nodeSelector:
-        beta.kubernetes.io/os: linux

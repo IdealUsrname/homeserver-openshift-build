@@ -1,20 +1,16 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: shipping
   labels:
     name: shipping
-  namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: shipping
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: shipping
     spec:
@@ -63,5 +59,3 @@ spec:
         - name: tmp-volume
           emptyDir:
             medium: Memory
-      nodeSelector:
-        beta.kubernetes.io/os: linux

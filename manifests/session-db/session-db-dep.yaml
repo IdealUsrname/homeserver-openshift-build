@@ -1,20 +1,16 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: session-db
   labels:
     name: session-db
-  namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: session-db
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: session-db
       annotations:
@@ -35,5 +31,3 @@ spec:
               - SETGID
               - SETUID
           readOnlyRootFilesystem: true
-      nodeSelector:
-        beta.kubernetes.io/os: linux

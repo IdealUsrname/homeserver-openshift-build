@@ -1,20 +1,16 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: user
   labels:
     name: user
-  namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: user
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: user
     spec:
@@ -54,5 +50,3 @@ spec:
             port: 80
           initialDelaySeconds: 180
           periodSeconds: 3
-      nodeSelector:
-        beta.kubernetes.io/os: linux

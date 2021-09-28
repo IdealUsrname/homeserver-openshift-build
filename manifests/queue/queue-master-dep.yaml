@@ -1,20 +1,16 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: queue-master
   labels:
     name: queue-master
-  namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: queue-master
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: queue-master
     spec:
@@ -47,5 +43,3 @@ spec:
             port: 80
           initialDelaySeconds: 180
           periodSeconds: 3
-      nodeSelector:
-        beta.kubernetes.io/os: linux
